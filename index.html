@@ -5,37 +5,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Autobuy - Piese Auto</title>
-  <link rel="stylesheet" href="resources/style_main.css"/>
+  <link rel="stylesheet" href="resources/css/style_main.css"/>
   <script defer src="resources/scripts/user.js"></script>
-  <script defer src="resources/scripts/database.js"></script>
   <script defer src="resources/scripts/search.js"></script>
 </head>
 <body>
   <header>
+    <a href="categories/cart.html" class="cart-icon" title="Coș">
+      <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="17" cy="39" r="3"/>
+          <circle cx="37" cy="39" r="3"/>
+          <path d="M7 10h6l6 24h18l6-18H13"/>
+        </g>
+      </svg>
+      Coș
+    </a>
     <h1>Autobuy</h1>
     <p style="margin-top: -10px; font-size: 1rem; color: #9e9a9a;">
-    Tot ce ai nevoie pentru mașina ta, într-un singur loc. Rapid, sigur și 100% online.
+      Tot ce ai nevoie pentru mașina ta, într-un singur loc. Rapid, sigur și 100% online.
     </p>
     <span id="user-controls" style="position: absolute; top: 15px; right: 20px;"></span>
     <nav>
+      <input type="text" id="search-box" placeholder="Caută produse..." />
       <div class="nav-links">
         <a href="index.html">Acasă</a>
         <a href="categories/consumabile.html">Consumabile</a>
         <a href="categories/motor.html">Piese Motor</a>
-        <a href="cart.html">Coș</a>
-        <a href="favorites.html">Favorite</a>
+        <a href="categories/favorites.html">Favorite</a>
+        <a href="categories/reviews.html">Reviews</a>
       </div>
-      <input type="text" id="search-box" placeholder="Caută produse..." />
     </nav>
   </header>
   <main>
     <section id="top-products">
-      <h2>Top produse</h2>
+      <h2>Top Produse</h2>
       <div id="product-list"></div>
     </section>
   </main>
   <footer>
+    <footer>
     <p>&copy; 2025 Autobuy</p>
+    <p style="font-size:0.95em; color:#bbb;">
+      Drepturi de autor &copy; Stoinoiu Alexandru - Ristea Alexandru - Horia Teodor &mdash; Universitatea din București
+    </p>
   </footer>
 </body>
 </html>

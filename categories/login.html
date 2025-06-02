@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Autentificare - Autobuy</title>
+  <script src="../resources/scripts/user.js" defer></script>
+  <link rel="stylesheet" href="../resources/css/style_login.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Autentificare</h2>
+    <form onsubmit="event.preventDefault(); login(document.getElementById('user').value, document.getElementById('pass').value);">
+      <input id="user" type="text" placeholder="Username" required /><br/>
+      <input id="pass" type="password" placeholder="Parolă" required /><br/>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

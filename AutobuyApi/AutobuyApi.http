@@ -1,0 +1,6 @@
+@AutobuyApi_HostAddress = http://localhost:5145
+
+GET {{AutobuyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
