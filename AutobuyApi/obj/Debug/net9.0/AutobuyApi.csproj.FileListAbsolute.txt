@@ -167,3 +167,4 @@ C:\Users\Stoi\Desktop\autobuy\AutobuyApi\obj\Debug\net9.0\refint\AutobuyApi.dll
 C:\Users\Stoi\Desktop\autobuy\AutobuyApi\obj\Debug\net9.0\AutobuyApi.pdb
 C:\Users\Stoi\Desktop\autobuy\AutobuyApi\obj\Debug\net9.0\AutobuyApi.genruntimeconfig.cache
 C:\Users\Stoi\Desktop\autobuy\AutobuyApi\obj\Debug\net9.0\ref\AutobuyApi.dll
+C:\Users\Stoi\Desktop\autobuy\AutobuyApi\bin\Debug\net9.0\BCrypt.Net-Next.dll

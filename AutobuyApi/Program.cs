@@ -31,10 +31,37 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Minimal API endpoint for products
 app.MapGet("/api/products", async (AutobuyContext db) =>
     await db.Products.ToListAsync()
 );
 
+app.MapPost("/api/users/register", async (AutobuyContext db, UserDto user) =>
+{
+    if (await db.Users.AnyAsync(u => u.Username == user.Username))
+        return Results.BadRequest("Username already exists");
+
+    var newUser = new User
+    {
+        Name = user.Name,
+        Username = user.Username,
+        PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password)
+    };
+    db.Users.Add(newUser);
+    await db.SaveChangesAsync();
+    return Results.Ok();
+});
+
+app.MapPost("/api/users/login", async (AutobuyContext db, UserDto user) =>
+{
+    var dbUser = await db.Users.FirstOrDefaultAsync(u => u.Username == user.Username);
+    if (dbUser == null)
+        return Results.BadRequest("Utilizator inexistent");
+
+    if (!BCrypt.Net.BCrypt.Verify(user.Password, dbUser.PasswordHash))
+        return Results.BadRequest("Parolă greșită");
+
+    // Optionally, return user info/role (never return password hash!)
+    return Results.Ok(new { dbUser.Id, dbUser.Name, dbUser.Username });
+});
 
 app.Run();
