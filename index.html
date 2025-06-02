@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autobuy - Piese Auto</title>
+  <link rel="stylesheet" href="resources/style_main.css"/>
+  <script defer src="resources/scripts/user.js"></script>
+  <script defer src="resources/scripts/database.js"></script>
+  <script defer src="resources/scripts/search.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Autobuy</h1>
+    <p style="margin-top: -10px; font-size: 1rem; color: #9e9a9a;">
+    Tot ce ai nevoie pentru mașina ta, într-un singur loc. Rapid, sigur și 100% online.
+    </p>
+    <span id="user-controls" style="position: absolute; top: 15px; right: 20px;"></span>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Acasă</a>
+        <a href="categories/consumabile.html">Consumabile</a>
+        <a href="categories/motor.html">Piese Motor</a>
+        <a href="cart.html">Coș</a>
+        <a href="favorites.html">Favorite</a>
+      </div>
+      <input type="text" id="search-box" placeholder="Caută produse..." />
+    </nav>
+  </header>
+  <main>
+    <section id="top-products">
+      <h2>Top produse</h2>
+      <div id="product-list"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Autobuy</p>
+  </footer>
+</body>
+</html>
