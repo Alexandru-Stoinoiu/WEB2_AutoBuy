@@ -79,10 +79,12 @@ tr:last-child td {
   border-bottom: none;
 }
 .edit-btn, .delete-btn {
-  width: 90px;
-  min-width: 90px;
-  height: 36px;
-  display: inline-block;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: none;
   border-radius: 4px;
@@ -90,22 +92,28 @@ tr:last-child td {
   cursor: pointer;
   margin: 2px 4px;
   transition: background 0.2s;
-  font-weight: 500;
   vertical-align: middle;
+  background: none;
 }
+
 .edit-btn {
-  background: #1a73e8;
-  color: #ffffff;
+  color: #1a73e8;
 }
 .edit-btn:hover {
-  background: #155ab6;
+  background: #e3f0fd;
 }
+
 .delete-btn {
-  background: #e53935;
-  color: #fff;
+  color: #e53935;
 }
 .delete-btn:hover {
-  background: #b71c1c;
+  background: #fdeaea;
+}
+
+.icon-pencil, .icon-trash {
+  display: inline-block;
+  vertical-align: middle;
+  pointer-events: none;
 }
 .modal {
   position: fixed;

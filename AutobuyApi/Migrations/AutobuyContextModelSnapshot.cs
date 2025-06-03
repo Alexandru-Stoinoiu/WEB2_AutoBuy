@@ -47,6 +47,9 @@ namespace AutobuyApi.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 

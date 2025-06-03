@@ -16,17 +16,27 @@ document.addEventListener("DOMContentLoaded", () => {
     products.forEach(p => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${p.imageUrl ? `<img src="${p.imageUrl}" style="max-width:60px;"/>` : ""}</td>
-        <td>${p.name}</td>
-        <td>${p.description}</td>
-        <td>${p.category || ""}</td>
-        <td>${p.price} lei</td>
-        <td>${p.stock}</td>
-        <td>
-          <button class="edit-btn" data-id="${p.id}">Editează</button>
-          <button class="delete-btn" data-id="${p.id}">Șterge</button>
-        </td>
-      `;
+  <td>${p.imageUrl ? `<img src="${p.imageUrl}" style="max-width:60px;"/>` : ""}</td>
+  <td>${p.name}</td>
+  <td>${p.description}</td>
+  <td>${p.category || ""}</td>
+  <td>${p.price} lei</td>
+  <td>${p.stock}</td>
+  <td>
+    <button class="edit-btn" data-id="${p.id}" title="Editează">
+      <svg class="icon-pencil" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14.7 3.3a1 1 0 0 1 1.4 1.4l-9.2 9.2-2.1.7.7-2.1 9.2-9.2z"/>
+        <path d="M13.3 5.7l1.4 1.4"/>
+      </svg>
+    </button>
+    <button class="delete-btn" data-id="${p.id}" title="Șterge">
+      <svg class="icon-trash" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="5" y="7" width="10" height="8" rx="1"/>
+        <path d="M3 7h14M8 7V5a2 2 0 0 1 4 0v2"/>
+      </svg>
+    </button>
+  </td>
+`;
       tableBody.appendChild(tr);
     });
   }

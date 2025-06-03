@@ -6,17 +6,17 @@ async function login(username, password) {
   });
 
   if (res.ok) {
-    const user = await res.json();
+  const user = await res.json();
 
-    const name = user.Name || user.name || '';
-    const uname = user.Username || user.username || username;
-    const role = user.Role || user.role || 'user';
+  const id = user.Id || user.id; // <-- Add this line
+  const name = user.Name || user.name || '';
+  const uname = user.Username || user.username || username;
+  const role = user.Role || user.role || 'user';
 
-    localStorage.setItem('currentUser', JSON.stringify({ username: uname, name: name, role: role }));
-    window.location.href = '../index.html';
-  } else {
-    alert('Autentificare eșuată');
-  }
+  // Add id to the stored object
+  localStorage.setItem('currentUser', JSON.stringify({ id: id, username: uname, name: name, role: role }));
+  window.location.href = '../index.html';
+}
 }
 
 function logout() {

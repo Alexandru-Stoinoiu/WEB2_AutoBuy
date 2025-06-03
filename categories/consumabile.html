@@ -19,6 +19,10 @@
       <div class="modal-details">
         <h2 id="modal-title"></h2>
         <p id="modal-desc"></p>
+        <div class="rating-section" style="margin: 16px 0;">
+          <span id="star-rating"></span>
+          <span id="median-rating" style="margin-left:10px; color:#888;">Medie: 0</span>
+        </div>
         <div style="margin:12px 0;">
           <p id="modal-stock" style="margin-bottom: 8px;"></p>
           <strong id="modal-price"></strong>
@@ -41,15 +45,23 @@
 </div>
   <header style="position: relative;">
     <span id="open-cart-btn" class="cart-icon" title="Coș" style="cursor:pointer;">
-  <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
-    <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="17" cy="39" r="3"/>
-      <circle cx="37" cy="39" r="3"/>
-      <path d="M7 10h6l6 24h18l6-18H13"/>
-    </g>
-  </svg>
-  Coș
-</span>
+    <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="17" cy="39" r="3"/>
+        <circle cx="37" cy="39" r="3"/>
+        <path d="M7 10h6l6 24h18l6-18H13"/>
+      </g>
+    </svg>
+    Coș
+  </span>
+  <span id="open-fav-btn" class="cart-icon" title="Favorite" style="top: 60px; left: 20px; cursor:pointer;">
+    <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 42s-1.74-1.61-4.55-4.09C12.36 32.36 6 26.28 6 19.5 6 13.7 10.7 9 16.5 9c2.74 0 5.41 1.19 7.5 3.09C26.09 10.19 28.76 9 31.5 9 37.3 9 42 13.7 42 19.5c0 6.78-6.36 12.86-13.45 18.41C25.74 40.39 24 42 24 42z"/>
+      </g>
+    </svg>
+    Favorite
+  </span>
     <h1>Consumabile</h1>
     <span id="user-controls" style="position: absolute; top: 15px; right: 20px;"></span>
     <nav>
@@ -57,20 +69,26 @@
         <a href="../index.html">Acasă</a>
         <a href="consumabile.html">Consumabile</a>
         <a href="motor.html">Piese Motor</a>
-        <a href="favorites.html">Favorite</a>
       </div>
-      <input type="text" id="search-box" placeholder="Caută consumabile..." style="position: absolute; left: 0; bottom: -40px; width: 250px;" />
     </nav>
   </header>
   <main>
-    <section id="filters">
-      <select><option>Toate tipurile</option></select>
-      <select><option>Toate brandurile</option></select>
-      <input type="number" placeholder="Preț minim" />
-      <input type="number" placeholder="Preț maxim" />
-      <select><option>Stoc</option></select>
-      <select><option>Rating</option></select>
-    </section>
+  <section id="filters">
+  <input type="text" id="search-box" placeholder="Caută consumabile..." />
+  <input type="number" id="min-price" placeholder="Preț minim" />
+  <input type="number" id="max-price" placeholder="Preț maxim" />
+  <select id="stock-filter">
+    <option value="">Stoc</option>
+    <option value="in">În stoc</option>
+    <option value="out">Fără stoc</option>
+  </select>
+  <select id="rating-filter">
+    <option value="">Rating</option>
+    <option value="5">5 stele</option>
+    <option value="4">4+ stele</option>
+    <option value="3">3+ stele</option>
+  </select>
+</section>
     <section id="product-list">
     </section>
   </main>

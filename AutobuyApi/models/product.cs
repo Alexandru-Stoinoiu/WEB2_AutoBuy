@@ -9,5 +9,6 @@ namespace AutobuyApi.Models
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public string? ImageUrl { get; set; }
+        public double Rating { get; set; } = 0.0;
     }
 }

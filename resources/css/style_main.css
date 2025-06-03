@@ -116,6 +116,7 @@ nav {
   background: #fff;
   color: #222;
   min-width: 180px;
+
 }
 
 /*PRODUCT CARD*/
@@ -331,4 +332,16 @@ nav {
   cursor: not-allowed !important;
   color: #fff;
   opacity: 0.8;
+}
+
+.rating-star {
+  font-size: 2em;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.rating-star.selected,
+.rating-star:hover,
+.rating-star.hovered {
+  color: #FFD700;
 }
