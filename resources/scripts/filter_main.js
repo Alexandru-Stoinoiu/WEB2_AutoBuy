@@ -7,9 +7,9 @@ function renderProducts(products) {
     const div = document.createElement('div');
     div.className = 'product-card';
     div.innerHTML = `
-      <div class="img-placeholder"></div>
-      <div>${p.name}</div>
-    `;
+    <img src="${p.imageUrl || ''}" alt="${p.name}" class="product-img" style="width:100%;height:180px;object-fit:cover;">
+    <div>${p.name}</div>
+  `;
     div.addEventListener('click', () => openProductModal(p));
     productList.appendChild(div);
   });
@@ -54,7 +54,7 @@ function openProductModal(product) {
   modalAddCart.onclick = () => {
     if (product.stock && product.stock > 0) {
       let cart = JSON.parse(localStorage.getItem('cart') || "[]");
-      cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+      cart.push({ id: product.id, name: product.name, price: product.price, qty: 1, imageUrl: product.imageUrl });
       localStorage.setItem('cart', JSON.stringify(cart));
       modal.style.display = "none";
     }
