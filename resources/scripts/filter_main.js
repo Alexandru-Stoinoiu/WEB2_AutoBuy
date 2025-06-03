@@ -1,32 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById('product-list');
-  const searchBox = document.getElementById('search-box');
 
-function renderProducts(filtered) {
+function renderProducts(products) {
   productList.innerHTML = "";
-  filtered.forEach(p => {
+  products.forEach(p => {
     const div = document.createElement('div');
     div.className = 'product-card';
     div.innerHTML = `
       <div class="img-placeholder"></div>
       <div>${p.name}</div>
     `;
-    div.style.cursor = "pointer";
     div.addEventListener('click', () => openProductModal(p));
     productList.appendChild(div);
   });
 }
 
-const modal = document.getElementById('product-modal');
-const modalContent = document.getElementById('product-modal-content');
-const modalClose = document.getElementById('product-modal-close');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalDesc = document.getElementById('modal-desc');
-const modalPrice = document.getElementById('modal-price');
-const modalAddCart = document.getElementById('modal-add-cart');
-
-const modalStock = document.getElementById('modal-stock');
+  const modal = document.getElementById('product-modal');
+  const modalClose = document.getElementById('product-modal-close');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalPrice = document.getElementById('modal-price');
+  const modalStock = document.getElementById('modal-stock');
+  const modalAddCart = document.getElementById('modal-add-cart');
 
 function openProductModal(product) {
   modalImg.src = product.imageUrl || "https://via.placeholder.com/180x180?text=Imagine";
@@ -62,25 +58,13 @@ function openProductModal(product) {
   };
 }
 
-modalClose.onclick = () => modal.style.display = "none";
-modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }
+  modalClose.onclick = () => modal.style.display = "none";
+  modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
-  let allProducts = [];
   fetch('http://localhost:5145/api/products')
     .then(res => res.json())
     .then(products => {
-      allProducts = products.filter(p => p.category && p.category.toLowerCase() === "consumabile");
-      renderProducts(allProducts);
-
-      if (searchBox) {
-        searchBox.addEventListener('input', () => {
-          const query = searchBox.value.toLowerCase();
-          const filtered = allProducts.filter(p =>
-            p.name.toLowerCase().includes(query)
-          );
-          renderProducts(filtered);
-        });
-      }
+      renderProducts(products.slice(0, 5));
     })
     .catch(err => {
       productList.innerHTML = "<p style='color:red'>Nu s-au putut încărca produsele.</p>";

@@ -1,12 +1,62 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
-  <title>Panou Moderator</title>
+  <meta charset="UTF-8" />
+  <title>Panou Moderator - Autobuy</title>
+  <link rel="stylesheet" href="../resources/css/style_main.css"/>
+  <link rel="stylesheet" href="../resources/css/admin.css"/>
+  <script defer src="../resources/scripts/admin.js"></script>
 </head>
 <body>
-  <h2>Administrare produse</h2>
-  <button>Adaugă produs</button>
-  <!-- Tabel cu produse de modificat/șters -->
+  <header>
+  <h2>Autobuy</h2>
+  <nav>
+    <a href="../index.html">Acasă</a>
+    <a href="../categories/consumabile.html">Consumabile</a>
+    <a href="../categories/motor.html">Motor</a>
+  </nav>
+</header>
+  <div class="container">
+    <h1>Panou Moderator</h1>
+    <button id="add-product-btn">Adaugă produs</button>
+    <table id="products-table">
+      <thead>
+        <tr>
+          <th>Imagine</th>
+          <th>Nume</th>
+          <th>Descriere</th>
+          <th>Categorie</th>
+          <th>Preț</th>
+          <th>Stoc</th>
+          <th>Acțiuni</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div id="product-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h2 id="modal-title">Adaugă/Editare Produs</h2>
+      <form id="product-form">
+        <input type="hidden" id="product-id" />
+        <label>Nume: <input type="text" id="product-name" required /></label>
+        <label>Categorie:
+          <select id="product-category" required>
+            <option value="">Alege categoria</option>
+            <option value="Consumabile">Consumabile</option>
+            <option value="Motor">Motor</option>
+          </select>
+        </label>
+        <label>Descriere: <textarea id="product-desc" required></textarea></label>
+        <label>Preț: <input type="number" id="product-price" required min="0" step="0.01" /></label>
+        <label>Stoc: <input type="number" id="product-stock" required min="0" /></label>
+        <label>Imagine: <input type="file" id="product-image" accept="image/*" /></label>
+        <img id="preview-image" src="" alt="" />
+        <button type="submit" id="save-product-btn">Salvează</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

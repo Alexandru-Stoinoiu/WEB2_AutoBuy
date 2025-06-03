@@ -1,7 +1,3 @@
-const users = {
-  'mod1': { password: 'admin', role: 'moderator' }
-};
-
 async function login(username, password) {
   const res = await fetch('http://localhost:5145/api/users/login', {
     method: 'POST',
@@ -11,13 +7,12 @@ async function login(username, password) {
 
   if (res.ok) {
     const user = await res.json();
-    console.log('Backend user object:', user); // Debug line
 
-    // Use both possible casings for robustness
     const name = user.Name || user.name || '';
     const uname = user.Username || user.username || username;
+    const role = user.Role || user.role || 'user';
 
-    localStorage.setItem('currentUser', JSON.stringify({ username: uname, name: name, role: 'user' }));
+    localStorage.setItem('currentUser', JSON.stringify({ username: uname, name: name, role: role }));
     window.location.href = '../index.html';
   } else {
     alert('Autentificare eșuată');
@@ -40,13 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
   if (user.role === 'guest') {
     controls.innerHTML = `<a href="/categories/login.html" class="nav-auth">Autentificare</a>`;
   } else {
-    // Fallback: show name, then username, then "Utilizator"
     const displayName = user.name || user.username || "Utilizator";
-    controls.innerHTML = `
+    let html = `
       <div style="text-align: right; color: white;">
         <strong>Bun venit, ${displayName} (${user.role})</strong><br/>
         <button onclick="logout()" class="nav-auth" style="margin-top: 5px;">Ieșire</button>
-      </div>
     `;
+
+    if (user.role === 'moderator' || user.role === 'admin') {
+      html += `
+        <br/>
+        <button onclick="window.location.href='../categories/admin.html'" class="nav-auth" style="margin-top: 5px;">Panou Moderator</button>
+      `;
+    }
+
+    html += `</div>`;
+    controls.innerHTML = html;
   }
 });

@@ -14,5 +14,7 @@ namespace AutobuyApi.Models
 
         [Required]
         public string PasswordHash { get; set; } = null!;
+
+        public string Role { get; set; }
     }
 }

@@ -1,0 +1,65 @@
+<html>
+<head>
+  <style>
+    body { background: #222; }
+    .header-actions {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      z-index: 10;
+    }
+    .cart-icon, .favorite-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 160px;
+      height: 40px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      margin: 0;
+      padding: 0 18px 0 8px;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .cart-icon__svg, .favorite-icon { margin-right: 10px; }
+    .cart-icon:hover, .favorite-btn:hover,
+    .cart-icon:focus, .favorite-btn:focus {
+      background: #ff9800;
+      color: #222;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="header-actions">
+    <span class="cart-icon" style="cursor:pointer;">
+      <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none" width="24" height="24">
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="17" cy="39" r="3"/>
+          <circle cx="37" cy="39" r="3"/>
+          <path d="M7 10h6l6 24h18l6-18H13"/>
+        </g>
+      </svg>
+      Coș
+    </span>
+    <a href="#" class="favorite-btn">
+      <svg class="favorite-icon" viewBox="0 0 24 24" fill="none" width="24" height="24">
+        <path d="M12 21s-7-5.434-7-10a5 5 0 0 1 10 0 5 5 0 0 1 10 0c0 4.566-7 10-7 10z" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      Favorite
+    </a>
+  </div>
+</body>
+</html>

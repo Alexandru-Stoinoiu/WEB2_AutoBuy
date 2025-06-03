@@ -6,12 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Autobuy - Piese Auto</title>
   <link rel="stylesheet" href="resources/css/style_main.css"/>
+  <link rel="stylesheet" href="resources/css/cart_modal.css"/>
   <script defer src="resources/scripts/user.js"></script>
-  <script defer src="resources/scripts/search.js"></script>
+  <script defer src="resources/scripts/filter_main.js"></script>
+  <script defer src="resources/scripts/cart.js"></script>
 </head>
 <body>
+ <div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:1000;">
+  <div id="product-modal-content">
+    <button id="product-modal-close">&times;</button>
+    <div class="modal-flex">
+      <img id="modal-img" src="" alt="Imagine produs">
+      <div class="modal-details">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <div style="margin:12px 0;">
+          <p id="modal-stock" style="margin-bottom: 8px;"></p>
+          <strong id="modal-price"></strong>
+        </div>
+        <button id="modal-add-cart">Adaugă în coș</button>
+      </div>
+    </div>
+  </div>
+</div> 
+<div id="cart-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="cart-modal-header">
+      <h2>Coșul de cumpărături</h2>
+      <span id="cart-modal-close" style="cursor:pointer;">&times;</span>
+    </div>
+    <ul id="cart-list"></ul>
+    <div id="cart-total" class="cart-total"></div>
+    <button id="cart-buy-btn" class="cart-buy-btn" style="display:none;">Cumpără</button>
+  </div>
+</div>
   <header>
-    <a href="categories/cart.html" class="cart-icon" title="Coș">
+    <span id="open-cart-btn" class="cart-icon" title="Coș" style="cursor:pointer;">
       <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
         <g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="17" cy="39" r="3"/>
@@ -20,20 +50,19 @@
         </g>
       </svg>
       Coș
-    </a>
+    </span>
     <h1>Autobuy</h1>
     <p style="margin-top: -10px; font-size: 1rem; color: #9e9a9a;">
       Tot ce ai nevoie pentru mașina ta, într-un singur loc. Rapid, sigur și 100% online.
     </p>
     <span id="user-controls" style="position: absolute; top: 15px; right: 20px;"></span>
     <nav>
-      <! <input type="text" id="search-box" placeholder="Caută produse..." />
+      <!-- <input type="text" id="search-box" placeholder="Caută produse..." /> -->
       <div class="nav-links">
         <a href="index.html">Acasă</a>
         <a href="categories/consumabile.html">Consumabile</a>
         <a href="categories/motor.html">Piese Motor</a>
         <a href="categories/favorites.html">Favorite</a>
-        <a href="categories/reviews.html">Reviews</a>
       </div>
     </nav>
   </header>
@@ -44,10 +73,9 @@
     </section>
   </main>
   <footer>
-    <footer>
     <p>&copy; 2025 Autobuy</p>
     <p style="font-size:0.95em; color:#bbb;">
-      Drepturi de autor &copy; Stoinoiu Alexandru - Ristea Alexandru - Horia Teodor &mdash; Universitatea din București
+      Drepturi de autor &copy; Stoinoiu Alexandru - Ristea Alexandru - Albeșteanu Horia &mdash; Universitatea din București
     </p>
   </footer>
 </body>
