@@ -6,46 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Autobuy - Piese Auto</title>
   <link rel="stylesheet" href="resources/css/style_main.css"/>
-  <link rel="stylesheet" href="resources/css/cart_modal.css"/>
+  <link rel="stylesheet" href="resources/css/modal.css"/>
   <script defer src="resources/scripts/user.js"></script>
-  <script defer src="resources/scripts/filter_main.js"></script>
+  <script type="module" src="resources/scripts/filter_main.js"></script>
+  <script type="module" src="resources/scripts/modal.js"></script>
   <script defer src="resources/scripts/cart.js"></script>
 </head>
 <body>
- <div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:1000;">
-  <div id="product-modal-content">
-    <button id="product-modal-close" style="position:absolute; top:16px; right:24px; font-size:1.5em; background:none; border:none; cursor:pointer;">&times;</button>
-    <div class="modal-flex" style="display:flex; gap:32px; align-items:flex-start;">
-      <img id="modal-img" src="" alt="Imagine produs" style="width:180px; height:180px; object-fit:cover; border-radius:8px; background:#e6eaf0;">
-      <div class="modal-details" style="flex:1;">
-        <h2 id="modal-title"></h2>
-        
-        <p id="modal-desc"></p>
-        <!-- Move the rating section here -->
-        <div class="rating-section" style="margin: 16px 0;">
-          <span id="star-rating"></span>
-          <span id="median-rating" style="margin-left:10px; color:#888;">Medie: 0</span>
-        </div>
-        <div style="margin:12px 0;">
-          <p id="modal-stock" style="margin-bottom: 8px;"></p>
-          <strong id="modal-price"></strong>
-        </div>
-        <button id="modal-add-cart" style="margin-bottom:16px;">Adaugă în coș</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="cart-modal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <div class="cart-modal-header">
-      <h2>Coșul de cumpărături</h2>
-      <span id="cart-modal-close" style="cursor:pointer;">&times;</span>
-    </div>
-    <ul id="cart-list"></ul>
-    <div id="cart-total" class="cart-total"></div>
-    <button id="cart-buy-btn" class="cart-buy-btn" style="display:none;">Cumpără</button>
-  </div>
-</div>
   <header>
     <span id="open-cart-btn" class="cart-icon" title="Coș" style="cursor:pointer;">
     <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">

@@ -5,44 +5,13 @@
   <title>Piese Motor - Autobuy</title>
   <link rel="stylesheet" href="../resources/css/style_main.css"/>
   <link rel="stylesheet" href="../resources/css/style_motor.css"/>
-  <link rel="stylesheet" href="../resources/css/cart_modal.css"/>
+  <link rel="stylesheet" href="../resources/css/modal.css"/>
   <script defer src="../resources/scripts/user.js"></script>
-  <script defer src="../resources/scripts/filter_motor.js"></script>
+  <script type="module" src="../resources/scripts/filter_motor.js"></script>
+  <script type="module" src="../resources/scripts/modal.js"></script>
   <script defer src="../resources/scripts/cart.js"></script>
 </head>
 <body>
-<div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:1000;">
-  <div id="product-modal-content">
-    <button id="product-modal-close">&times;</button>
-    <div class="modal-flex">
-      <img id="modal-img" src="" alt="Imagine produs">
-      <div class="modal-details">
-        <h2 id="modal-title"></h2>
-        <p id="modal-desc"></p>
-        <div class="rating-section" style="margin: 16px 0;">
-          <span id="star-rating"></span>
-          <span id="median-rating" style="margin-left:10px; color:#888;">Medie: 0</span>
-        </div>
-        <div style="margin:12px 0;">
-          <p id="modal-stock" style="margin-bottom: 8px;"></p>
-          <strong id="modal-price"></strong>
-        </div>
-        <button id="modal-add-cart">Adaugă în coș</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="cart-modal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <div class="cart-modal-header">
-      <h2>Coșul de cumpărături</h2>
-      <span id="cart-modal-close" style="cursor:pointer;">&times;</span>
-    </div>
-    <ul id="cart-list"></ul>
-    <div id="cart-total" class="cart-total"></div>
-    <button id="cart-buy-btn" class="cart-buy-btn" style="display:none;">Cumpără</button>
-  </div>
-</div>
   <header style="position: relative;">
   <span id="open-cart-btn" class="cart-icon" title="Coș" style="cursor:pointer;">
     <svg class="cart-icon__svg" viewBox="0 0 48 48" fill="none">
@@ -77,12 +46,12 @@
   <input type="number" id="min-price" placeholder="Preț minim" />
   <input type="number" id="max-price" placeholder="Preț maxim" />
   <select id="stock-filter">
-    <option value="">Toate</option>
+    <option value="">Stoc produse</option>
     <option value="in">În stoc</option>
     <option value="out">Fără stoc</option>
   </select>
   <select id="rating-filter">
-    <option value="">Toate</option>
+    <option value="">Rating</option>
     <option value="5">5 stele</option>
     <option value="4">4+ stele</option>
     <option value="3">3+ stele</option>
