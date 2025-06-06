@@ -1,6 +1,6 @@
 .sidebar {
   width: 220px;
-  transition: width 0.2s, box-shadow 0.2s; /* Delay width so opacity finishes first */
+  transition: width 0.2s, box-shadow 0.2s;
   overflow-x: hidden;
   background: #222;
   color: #fff;
@@ -20,7 +20,7 @@
   width: 56px;
   padding-left: 0;
   padding-right: 0;
-  transition: width 0.2s, box-shadow 0.2s; /* No delay when expanding */
+  transition: width 0.2s, box-shadow 0.2s;
 }
 
 .sidebar h2 {
@@ -122,4 +122,14 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
+}
+
+.right-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 100vh;
+  background: #222;
+  z-index: 99;
 }
