@@ -5,10 +5,9 @@ document.getElementById('open-cart-btn').onclick = function() {
   const buyBtn = document.getElementById('cart-buy-btn');
   let cart = JSON.parse(localStorage.getItem('cart') || "[]");
 
-  // Group cart items by id to support quantity
   const grouped = {};
   cart.forEach(item => {
-    if (!item.id) return; // skip items without id
+    if (!item.id) return; 
     if (!grouped[item.id]) {
       grouped[item.id] = { ...item, quantity: 1 };
     } else {
@@ -41,14 +40,12 @@ document.getElementById('open-cart-btn').onclick = function() {
       btn.onclick = function(e) {
         e.stopPropagation();
         const id = this.getAttribute('data-index');
-        // Remove all items with this id from cart
         cart = cart.filter(item => item.id != id);
         localStorage.setItem('cart', JSON.stringify(cart));
-        document.getElementById('open-cart-btn').onclick(); // re-render
+        document.getElementById('open-cart-btn').onclick();
       };
     });
 
-    // Calculate and display total (extract number from price string)
     const total = groupedCart.reduce((sum, item) => {
       const priceNum = parseFloat(item.price.toString().replace(/[^\d.]/g, '')) || 0;
       return sum + priceNum * item.quantity;

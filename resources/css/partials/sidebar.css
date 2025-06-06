@@ -1,0 +1,125 @@
+.sidebar {
+  width: 220px;
+  transition: width 0.2s, box-shadow 0.2s; /* Delay width so opacity finishes first */
+  overflow-x: hidden;
+  background: #222;
+  color: #fff;
+  padding: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.sidebar.sidebar-collapsed {
+  width: 56px;
+  padding-left: 0;
+  padding-right: 0;
+  transition: width 0.2s, box-shadow 0.2s; /* No delay when expanding */
+}
+
+.sidebar h2 {
+  margin-bottom: 18px;
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+
+.sidebar.sidebar-collapsed h2 {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.sidebar.sidebar-collapsed .sidebar-buttons {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.sidebar-btn {
+  width: 80%;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-btn:hover {
+  background: #1666c1;
+}
+
+#sidebar-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  margin-bottom: 24px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 8px;
+  outline: none;
+  transition: transform 0.2s;
+}
+
+.sidebar.sidebar-collapsed #sidebar-toggle svg {
+  transform: rotate(180deg);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.sidebar nav a {
+  width: 80%;
+  padding: 10px 0;
+  text-align: center;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s, transform 0.2s, opacity 0.2s;
+  margin: 0 auto;
+  display: block;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #ff9800;
+  color: #222;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.sidebar.sidebar-collapsed h2,
+.sidebar.sidebar-collapsed nav a,
+.sidebar.sidebar-collapsed .sidebar-buttons {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}

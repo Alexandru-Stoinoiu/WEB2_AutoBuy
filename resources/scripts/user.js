@@ -6,22 +6,21 @@ async function login(username, password) {
   });
 
   if (res.ok) {
-  const user = await res.json();
+    const user = await res.json();
 
-  const id = user.Id || user.id; // <-- Add this line
-  const name = user.Name || user.name || '';
-  const uname = user.Username || user.username || username;
-  const role = user.Role || user.role || 'user';
+    const id = user.Id || user.id;
+    const name = user.Name || user.name || '';
+    const uname = user.Username || user.username || username;
+    const role = user.Role || user.role || 'user';
 
-  // Add id to the stored object
-  localStorage.setItem('currentUser', JSON.stringify({ id: id, username: uname, name: name, role: role }));
-  window.location.href = '../index.html';
-}
+    localStorage.setItem('currentUser', JSON.stringify({ id: id, username: uname, name: name, role: role }));
+    window.location.href = '/index.html';
+  }
 }
 
 function logout() {
   localStorage.removeItem('currentUser');
-  window.location.href = '../index.html';
+  window.location.href = '/index.html';
 }
 
 function getCurrentUser() {
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!controls) return;
   const user = getCurrentUser();
   if (user.role === 'guest') {
-    controls.innerHTML = `<a href="/categories/login.html" class="nav-auth">Autentificare</a>`;
+    controls.innerHTML = `<a href="/categories/pages/login.html" class="nav-auth">Autentificare</a>`;
   } else {
     const displayName = user.name || user.username || "Utilizator";
     let html = `
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user.role === 'moderator' || user.role === 'admin') {
       html += `
         <br/>
-        <button onclick="window.location.href='../categories/admin.html'" class="nav-auth" style="margin-top: 5px;">Panou Moderator</button>
+        <button onclick="window.location.href='/categories/pages/admin.html'" class="nav-auth" style="margin-top: 5px;">Panou Moderator</button>
       `;
     }
 

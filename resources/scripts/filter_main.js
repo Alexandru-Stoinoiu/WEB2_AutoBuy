@@ -1,7 +1,7 @@
-import { openProductModal, setupModalEvents } from './modal.js';
+import { openProductModal, setupModalEvents } from './modals/modal.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('categories/modal.html')
+  fetch('categories/modals/modal.html')
     .then(res => res.text())
     .then(html => {
       document.body.insertAdjacentHTML('afterbegin', html);

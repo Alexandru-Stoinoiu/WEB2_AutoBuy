@@ -1,0 +1,37 @@
+<div id="product-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="close-modal">&times;</span>
+    <h2 id="modal-title">Adaugă/Editare Produs</h2>
+    <form id="product-form">
+      <input type="hidden" id="product-id" />
+      <label>Nume: <input type="text" id="product-name" required /></label>
+      <label>Categorie:
+        <select id="product-category" required>
+          <option value="">Alege categoria</option>
+          <option value="Consumabile">Consumabile</option>
+          <option value="Motor">Motor</option>
+        </select>
+      </label>
+      <label>Descriere: <textarea id="product-desc" required></textarea></label>
+      <label>Preț: <input type="number" id="product-price" required min="0" step="0.01" /></label>
+      <label>Stoc: <input type="number" id="product-stock" required min="0" /></label>
+      <label>Imagine: <input type="file" id="product-image" accept="image/*" /></label>
+      <img id="preview-image" src="" alt="" />
+      <button type="submit" id="save-product-btn">Salvează</button>
+    </form>
+  </div>
+</div>
+<div id="admin-loading-modal" class="modal" style="display:none;">
+  <div class="modal-content" style="text-align:center; position:relative;">
+    <span id="admin-loading-close" style="display:none;cursor:pointer;font-size:2em;position:absolute;top:10px;right:20px;">&times;</span>
+    <h2 id="admin-loading-title">Se procesează...</h2>
+    <p id="admin-loading-message">Vă rugăm așteptați. Operațiunea este în curs.</p>
+    <div id="admin-loading-spinner" style="margin:20px auto;">
+      <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+    </div>
+    <button id="admin-loading-ok" style="display:none;margin-top:20px;">OK</button>
+  </div>
+</div>
+<style>
+@keyframes spin { 100% { transform: rotate(360deg); } }
+</style>
